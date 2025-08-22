@@ -1,0 +1,17 @@
+{
+  "name": "moko-head",
+  "version": "1.0.0",
+  "description": "MokoHub Command Center",
+  "main": "electron/main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "echo 'Build step complete.'",
+    "test": "echo \"Error: no test specified\" && exit 0"
+  },
+  "keywords": [],
+  "author": "Sarah Clark",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^31.0.1"
+  }
+}
