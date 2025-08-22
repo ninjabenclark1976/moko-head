@@ -1,0 +1,15 @@
+{
+  "supabaseUrl": "https://YOUR_SUPABASE_PROJECT.supabase.co",
+  "supabaseKey": "SUPABASE_SERVICE_ROLE_KEY",
+  "notify": {
+    "email": "bujinkanclark@gmail.com",
+    "sms": "+44YOUR_NUMBER"
+  },
+  "tables": {
+    "bounce_events": "records every pass outcome",
+    "ethics_decisions": "Claude audits + decisions",
+    "threat_models": "risks/mitigations",
+    "rollback_events": "if recovery triggered",
+    "master_token_usage": "safety justifications applied"
+  }
+}

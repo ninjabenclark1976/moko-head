@@ -1,0 +1,31 @@
+name: Build Crown App
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 18
+    - run: |
+        cd electron
+        npm install
+        echo "Building Electron app..."
+        # Moko will bounce this into proper build commands
+        mkdir -p dist && echo "fake-build" > dist/MokoHead.exe
+
+    - name: Upload Artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: moko-head-builds
+        path: electron/dist/*
+
+    - name: Notify Ben
+      run: |
+        ARTIFACT_URL="https://github.com/${{ github.repository }}/suites/${{ github.run_id }}/artifacts"
+        EMAIL=$(jq -r '.notify.email' config/mesh.json)
+        SMS=$(jq -r '.notify.sms' config/mesh.json)
+
+        echo "Sending link to $EMAIL and $SMS..."
+        # Moko will bounce in SendGrid/Twilio code here
